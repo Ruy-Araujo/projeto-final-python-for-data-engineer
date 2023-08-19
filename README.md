@@ -1,6 +1,15 @@
-# Projeto Final - Python for Data Engineer
+# Projeto Final - Python for Data Engineer 🐍
 
 Repositório do projeto final da disciplina de Python for Data Engineer do MBA em Data Engineering da faculdade Impacta.
+
+- [Projeto Final - Python for Data Engineer 🐍](#projeto-final---python-for-data-engineer-)
+  - [Objetivo](#objetivo)
+  - [Requisitos](#requisitos)
+  - [Ingestão de dados](#ingestão-de-dados)
+    - [Sobre](#sobre)
+    - [Como usar](#como-usar)
+  - [Detalhes técnicos](#detalhes-técnicos)
+  - [Licença](#licença)
 
 ## Objetivo
 
