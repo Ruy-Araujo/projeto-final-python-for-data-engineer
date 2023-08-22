@@ -1,2 +1,4 @@
 # Unecessary files
 .*env
+.sqlite
+__pycache__
