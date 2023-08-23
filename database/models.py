@@ -38,6 +38,18 @@ class AbstractModel():
             SELECT * FROM {self.table_name} WHERE id = {id};
         """)
         return self.cursor.fetchone()
+    
+    def read_count(self):
+        self.cursor.execute(f"""
+            SELECT count(1) registros FROM {self.table_name};
+        """)
+        return self.cursor.fetchone()
+    
+    def read_with_filter(self, filter):
+        self.cursor.execute(f"""
+            SELECT * FROM {self.table_name} WHERE {filter};
+        """)
+        return self.cursor.fetchall()
 
 
 class HistoricalOHLC(AbstractModel):
