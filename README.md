@@ -8,6 +8,7 @@ Repositório do projeto final da disciplina de Python for Data Engineer do MBA e
   - [Ingestão de dados](#ingestão-de-dados)
     - [Sobre](#sobre)
     - [Como usar](#como-usar)
+    - [Parâmetros](#parâmetros)
   - [Detalhes técnicos](#detalhes-técnicos)
   - [Licença](#licença)
 
@@ -34,7 +35,9 @@ Crie gráficos de apresentação de dados que respondam às seguintes perguntas:
 
 ### Sobre
 
-A aplicação de ingestão de dados foi desenvolvida utilizando a linguagem Python e a biblioteca ???. O objetivo da aplicação é extrair dados do site CoinMarketCap e armazená-los em um banco de dados ????.
+A aplicação de ingestão de dados foi desenvolvida utilizando a linguagem Python. O objetivo da aplicação é extrair dados do site CoinMarketCap e armazená-los em um banco de dados sqlite.
+
+A aplicação se aproveita de recursos assincronos da biblioteca httpx para realizar as requisições de forma rápida e eficiente, e inseri os dados através da biblioteca sqlite3.
 
 ### Como usar
 
@@ -50,6 +53,21 @@ git clone
 cd projeto-final-python-for-data-engineer
 pip install -r requirements.txt
 ```
+
+3. Execute a aplicação:
+
+```bash
+python main.py --coind_id 1 --start_date 2016-01-01 --end_date 2021-01-01 --interval 1d --convert BRL
+```
+
+### Parâmetros
+
+A aplicação aceita os seguintes parâmetros:
+coind_id: ID da moeda a ser extraída na plataforma do [CoinMarketCap](https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyCategory).  
+start_date: Data de início da extração. No formato YYYY-MM-DD.
+end_date: Data de fim da extração. No formato YYYY-MM-DD.
+interval: Intervalo de tempo entre as requisições ex. [1d](https://coinmarketcap.com/api/documentation/v1/#operation/getV3CryptocurrencyQuotesHistorical).  
+convert: Moeda de conversão ex. BRL.
 
 ## Detalhes técnicos
 
