@@ -1,5 +1,7 @@
+from datetime import datetime, timedelta
 from datetime import datetime
-    
+
+
 def from_unixtime_sec(unixtime):
     """
     Converte um timestamp Unix em segundos em uma string de data e hora no formato 'YYYY-MM-DD HH:MM:SS'.
@@ -28,7 +30,8 @@ def from_unixtime_sec(unixtime):
     except ValueError:
         return None
 
-def to_unixtime_sec(date):
+
+async def to_unixtime_sec(date):
     """
     Converte uma string de data no formato 'YYYY-MM-DD' em um timestamp Unix em Segundos.
 
@@ -55,6 +58,21 @@ def to_unixtime_sec(date):
         return unixtime_sec
     except ValueError:
         return None
+
+
+def generate_date_ranges(start_date, end_date, size):
+    date_format = "%Y-%m-%d"
+    date_ranges = []
+
+    current_date = datetime.strptime(start_date, date_format)
+    end_date_obj = datetime.strptime(end_date, date_format)
+
+    while current_date <= end_date_obj:
+        date_ranges.append((current_date.strftime(date_format), (current_date + timedelta(days=size-1)).strftime(date_format)))
+        current_date += timedelta(days=size)
+
+    return date_ranges
+
 
 if __name__ == '__main__':
     # Exemplos de uso
