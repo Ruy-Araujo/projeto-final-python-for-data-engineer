@@ -56,12 +56,6 @@ class AbstractModel():
         """)
         return self.cursor.fetchone()
 
-    async def read_with_filter(self, filter):
-        await self.cursor.execute(f"""
-            SELECT * FROM {self.table_name} WHERE {filter};
-        """)
-        return self.cursor.fetchall()
-
 
 class HistoricalOHLC(AbstractModel):
     def __init__(self):
@@ -87,3 +81,10 @@ class HistoricalOHLC(AbstractModel):
             INSERT OR REPLACE INTO {self.table_name}
             VALUES (null, ?, ?, ?, ?, ?, ?, ?, '{datetime.now()}');
         """, item)
+
+    async def read_with_filter(self, filter):
+        data = await self.execute_query(f"""
+            SELECT * FROM {self.table_name} WHERE {filter};
+        """)
+
+        return data
