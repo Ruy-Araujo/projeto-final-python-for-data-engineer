@@ -57,12 +57,13 @@ pip install -r requirements.txt
 3. Execute a aplicação:
 
 ```bash
-python main.py -id 1 -start 2016-01-01 --end 2021-01-01 --i 1d --c BRL
+python app/main.py -id 1 -start 2016-01-01 -end 2021-01-01 -i 1d -c BRL
 ```
 
 ### Parâmetros
 
 A aplicação aceita os seguintes parâmetros:
+
 - id: ID da moeda a ser extraída na plataforma do [CoinMarketCap](https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyCategory).
 - start: Data de início da extração. No formato YYYY-MM-DD.
 - end: Data de fim da extração. No formato YYYY-MM-DD.
