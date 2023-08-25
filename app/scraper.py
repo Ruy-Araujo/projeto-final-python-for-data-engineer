@@ -1,4 +1,4 @@
-from app.tools import to_unixtime_sec, generate_date_ranges
+from tools import to_unixtime_sec, generate_date_ranges
 import httpx
 import asyncio
 

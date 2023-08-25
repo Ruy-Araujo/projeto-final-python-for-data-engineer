@@ -78,7 +78,7 @@ class HistoricalOHLC(AbstractModel):
 
     async def insert(self, item):
         await self.execute_query(f"""
-            INSERT OR REPLACE INTO {self.table_name}
+            INSERT INTO {self.table_name}
             VALUES (null, ?, ?, ?, ?, ?, ?, ?, '{datetime.now()}');
         """, item)
 
