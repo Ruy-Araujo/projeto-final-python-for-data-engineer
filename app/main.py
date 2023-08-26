@@ -1,7 +1,10 @@
+import argparse
+import asyncio
 from scraper import Scraper
 from database.models import HistoricalOHLC
-import asyncio
-import argparse
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 async def parse_args():

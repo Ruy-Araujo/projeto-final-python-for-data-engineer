@@ -3,10 +3,12 @@
 # realizar operações básicas de criação de tabelas, inserção de dados e consultas. O código define uma
 # classe chamada "Currency" que encapsula as operações relacionadas à tabela "currency" em um banco de
 # dados chamado "cryptoCurrency.sqlite".
+import logging
 import sqlite3
 from datetime import datetime
 
-db_name = 'database.sqlite'
+
+db_name = './data/database.sqlite'
 
 
 class AbstractModel():
@@ -17,6 +19,7 @@ class AbstractModel():
         conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
+        logging.info(f"Executando query...")
         if parameters:
             cursor.execute(query, parameters)
         else:
@@ -62,6 +65,7 @@ class HistoricalOHLC(AbstractModel):
         super().__init__(table_name='ohlc_historical')
 
     async def create_table(self):
+        logging.info(f"Criando tabela {self.table_name}...")
         await self.execute_query(f"""
             CREATE TABLE IF NOT EXISTS {self.table_name} (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -77,6 +81,7 @@ class HistoricalOHLC(AbstractModel):
         """)
 
     async def insert(self, item):
+        logging.info(f"Inserindo dados na tabela {self.table_name}...")
         await self.execute_query(f"""
             INSERT INTO {self.table_name}
             VALUES (null, ?, ?, ?, ?, ?, ?, ?, '{datetime.now()}');
