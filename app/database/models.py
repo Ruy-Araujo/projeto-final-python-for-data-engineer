@@ -8,7 +8,7 @@ import sqlite3
 from datetime import datetime
 
 
-db_name = './data/database.sqlite'
+db_name = './app/data/database.sqlite'
 
 
 class AbstractModel():
